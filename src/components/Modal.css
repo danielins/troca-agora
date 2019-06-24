@@ -1,0 +1,101 @@
+.troca-modal--wrapper {
+   position: fixed;
+   top: 0; left: 0;
+   z-index: 9999;
+   width: 100%; height: 100%;
+   background: rgba(0,0,0,0.4);
+}
+
+.troca-modal--overlay {
+   position: relative;
+   width: 100%; height: 100%;
+}
+
+.troca-modal {
+   background: #fff;
+   color: #333;
+   width: 95%; height: 200px;
+   max-width: 320px;
+   position: absolute;
+   top: 50%; left: 50%;
+   padding: 25px 20px;
+   transform: translate(-50%, -50%);
+   box-shadow: 1px 1px 10px 1px #666;
+   
+  animation-name: effect2;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  transform-origin: center center;
+}
+
+@keyframes effect2 {
+   0% { top: 80%; opacity: 0.5; }
+   100% { top: 50%; opacity: 1; }
+}
+
+.troca-modal.is-closing {
+  animation-name: effect3;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  transform-origin: center center;
+}
+
+@keyframes effect3 {
+   0% { top: 50%; opacity: 1 }
+   100% { top: 80%; opacity: 0.5; }
+}
+
+.troca-modal-title {
+   text-align: center;
+   margin-top: 0;
+   margin-bottom: 20px;
+}
+
+.troca-modal-input-field > * {
+   display: inline-block;
+   vertical-align: middle;
+   margin: 0;
+}
+
+.troca-modal-input-field input {
+   color: #d519aa;
+   padding: 5px 10px;
+   font-size: 20px;
+   font-weight: bold;
+   width: calc(100% - 45px); height: 45px;
+}
+.troca-modal-input-field button {
+   width: 45px; height: 45px;
+}
+
+.troca-modal-input-text {
+   margin: 5px auto 10px;
+   font-size: 10px;
+   text-align: center;
+}
+
+.troca-modal-cta {
+   width: 100%; height: 35px;
+   background-color: #333;
+   color: #fff;
+   border: none;
+   border-radius: 5px;
+   text-transform: uppercase;
+   font-size: 20px;
+}
+
+.troca-modal-close {
+   position: absolute;
+   top: 0; right: 0;
+   background: none;
+   border: none;
+   font-weight: bold;
+}

@@ -1,0 +1,19 @@
+.troca-banner {
+   background: #7ee6e7;
+   margin-bottom: 40px;
+}
+
+.troca-banner h1,
+.troca-banner h2 {
+   margin: 0;
+   padding: 0;
+}
+
+.troca-banner__logo {
+   margin: 0;
+   max-width: 100%; height: auto;
+}
+
+.troca-banner h2 {
+   color: #fff;
+}
