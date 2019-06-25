@@ -1,7 +1,9 @@
 export const troca = [{
       id: '1',
       marca: 'samsung',
-      modelos: [{
+      modelos: [
+         /*
+         {
             rms: '5675413',
             modelo: 'A10 32GB PRETO',
             desconto: '200,00',
@@ -73,6 +75,7 @@ export const troca = [{
             desconto: '300,00',
             cupom: 'A50UNE',
          },
+         */
          {
             rms: '5666171',
             modelo: 'S10 E 128GB PRETO',
@@ -135,6 +138,7 @@ export const troca = [{
          }
       ],
    },
+   /*
    {
       id: '2',
       marca: 'ASUS',
@@ -199,6 +203,7 @@ export const troca = [{
          },
       ]
    }
+   */
 ];
 
 

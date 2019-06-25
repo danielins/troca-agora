@@ -1,3 +1,8 @@
+.container-fluid {
+  padding: 0; 
+  margin: 0;
+}
+
 .troca--container {
   width: 100%;
   max-width: 1100px;
@@ -6,7 +11,7 @@
 
 /* MENU */
 .troca-menu {
-  background: url(img/menu-background.gif) repeat-x;
+  background: url(https://static.carrefour.com.br/imagens/troca-agora/img/menu-background.gif) repeat-x;
   background-position: 0 10px;
   text-align: center;
 }
@@ -57,19 +62,34 @@
   text-align: center;
 }
 
+.troca-step .text-label,
+.troca-step [type="text"],
 .troca-step select {
-  background: url(img/bg-select.gif) top right no-repeat;
-  display: block;
-  border: none;
-  border-bottom: 2px solid #82e6e6;
   color: #222;
-  text-transform: uppercase;
+  display: block;
   width: 90%;
   max-width: 370px;
-  height: 35px;
-  line-height: 35px;
   margin: 0 auto 20px;
   padding-left: 10px;
+  text-transform: uppercase;
+}
+
+
+.troca-step .text-label {
+  font-weight: normal;
+  text-align: left;
+}
+
+.troca-step [type="text"],
+.troca-step select {
+  border: none;
+  border-bottom: 2px solid #82e6e6;
+  height: 35px;
+  line-height: 35px;
+}
+
+.troca-step select {
+  background: url(https://static.carrefour.com.br/imagens/troca-agora/img/bg-select.gif) top right no-repeat;
 
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -83,6 +103,7 @@
 
 .troca-step select + select {
   margin-top: 70px;
+  margin-bottom: 70px;
 }
 
 .troca-radio-input {
@@ -102,6 +123,11 @@
   padding: 15px 20px;
   margin-top: 30px;
   position: relative;
+}
+
+.troca-radio-input p a {
+  color: #d519aa;
+  font-weight: bold;
 }
 
 .troca-radio-input p:before {
@@ -161,7 +187,7 @@
   width: 40px; height: 40px;
   left: -50px; top: -10px;
   position: absolute;
-  background: url(img/bg-checkbox.gif) no-repeat top right;
+  background: url(https://static.carrefour.com.br/imagens/troca-agora/img/bg-checkbox.gif) no-repeat top right;
 }
 
 .troca-radio-label input:checked + span:before {
@@ -204,4 +230,51 @@
     max-width: 255px;
   }
   
+}
+
+/**
+ * LAUDO
+ */
+
+ #laudo {
+  border: 1px solid #ccc;
+  padding: 50px;
+  width: 95%;
+  max-width: 640px;
+  margin: 50px auto;
+}
+
+#laudo header {
+  position: static; z-index: 0;
+  font-size: 25px;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#laudo p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  text-align: justify;
+}
+
+#laudo span {
+  font-size: inherit;
+  font-weight: bold;
+  color: #000;
+  text-transform: uppercase;
+}
+
+#btn-print {
+  background: #333;
+  border: none;
+  display: block;
+  padding: 10px;
+  color: #fff;
+  margin: 0 auto 50px;
+}
+
+@media print {
+  header, footer, .breadcrumb-section, .troca--container, #btn-print { display: none; }
+  #laudo header { display: block; }
 }

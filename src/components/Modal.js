@@ -34,9 +34,15 @@ class Modal extends Component {
                      </button>
                   </div>
                   <p className="troca-modal-input-text">
-                     Guarde este cupom este cupom e use-o durante a compra.
+                     <strong>
+                        Guarde este cupom e use-o durante a compra. Imprima o laudo gerado abaixo e leve-o junto com o seu aparelho usado na Loja Faz + Fácil de sua escolha.
+                     </strong>
                   </p>
-                  <button className="troca-modal-cta" onClick={ () =>  window.location.href = `https://www.carrefour.com.br/p/${ this.props.data.rms }` }>
+                
+                  <button className="troca-modal-cta" onClick={ () => {
+                     window.open(`https://www.carrefour.com.br/p/${ this.props.data.rms }`);
+                     this.props.closeModal();
+                  } }>
                      Comprar
                   </button>
                </div>
