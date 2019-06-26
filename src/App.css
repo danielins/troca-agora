@@ -44,6 +44,7 @@
 .troca__title {
   color: #5c5c5c;
   font-size: 25px;
+  font-weight: 500;
   line-height: 1.2;
   text-align: center;
   margin: 60px auto 50px;
@@ -74,7 +75,6 @@
   text-transform: uppercase;
 }
 
-
 .troca-step .text-label {
   font-weight: normal;
   text-align: left;
@@ -90,6 +90,7 @@
 
 .troca-step select {
   background: url(https://static.carrefour.com.br/imagens/troca-agora/img/bg-select.gif) top right no-repeat;
+  cursor: pointer;
 
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -232,11 +233,21 @@
   
 }
 
+
+/**
+ * CUPOM
+ */
+
+#cupom  {
+
+}
+
+
 /**
  * LAUDO
  */
 
- #laudo {
+ #laudo, #cupom {
   border: 1px solid #ccc;
   padding: 50px;
   width: 95%;
@@ -244,7 +255,8 @@
   margin: 50px auto;
 }
 
-#laudo header {
+#laudo header,
+#cupom header {
   position: static; z-index: 0;
   font-size: 25px;
   color: #000;
@@ -275,6 +287,6 @@
 }
 
 @media print {
-  header, footer, .breadcrumb-section, .troca--container, #btn-print { display: none; }
+  header, footer, .breadcrumb-section, .troca--container, #cupom, #lojas, #btn-print { display: none; }
   #laudo header { display: block; }
 }

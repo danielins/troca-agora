@@ -7,11 +7,10 @@ class Banner extends Component {
       return (
 
          <header className="troca-banner">
-            <h1>
-               <img className="troca-banner__logo" src='https://static.carrefour.com.br/imagens/troca-agora/img/logo.png' alt="Troca Agora" title="Troca Agora Carrefour" />
-            </h1>
+            <img className="troca-banner__logo" src='https://static.carrefour.com.br/imagens/troca-agora/img/logo.png' alt="Troca Agora" title="Troca Agora Carrefour" />
+            <img className="troca-banner__samsung" src='https://static.carrefour.com.br/imagens/troca-agora/img/logo-samsung.png' alt="Samsung" title="Samsung" />
             <h2>
-               É muito fácil trocar o seu aparelho usado por um novinho.
+               Ganhe até R$ <span>1.100</span>,00 de desconto na compra de um novo smartphone na troca do seu usado.
             </h2>
             <p>
                Olha só:

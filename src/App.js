@@ -7,6 +7,9 @@ import Banner from './components/Banner';
 import Menu from './components/Menu';
 import Modal from './components/Modal';
 
+import './components/Modal.css';
+import copy from './img/ico-copy.png';
+
 class App extends Component {
 
   constructor(props){
@@ -109,12 +112,13 @@ class App extends Component {
     this.setState({
       aceite: e.target.value === "true" ? true : false,
       step: 4,
-      modalOpen: e.target.value === "true" ? true : false,
+      // modalOpen: e.target.value === "true" ? true : false,
     });
 
     if ( e.target.value === "false" ) {
-      // window.location.href = `https://www.carrefour.com.br/p/${ this.state.modeloCompra }`;
-      window.open(`https://www.carrefour.com.br/p/${ this.state.modeloCompra }`);
+      window.location.href = `https://www.carrefour.com.br/p/${ this.state.modeloCompra }?crfint=subhome|troca-agora|termo-não|26062019|2`;
+    } else {
+      setTimeout(() => document.getElementById("lojas").scrollIntoView(), 500);
     }
 
   }
@@ -135,6 +139,12 @@ class App extends Component {
     }, 400);
   }
 
+  copyText(){
+    var copy = document.getElementById("cmpCupom");
+    copy.select();
+    document.execCommand('copy');
+ }
+
   render(){
 
     const modelosCompra = troca.filter(marca => marca.marca === this.state.marcaCompra).length
@@ -150,6 +160,10 @@ class App extends Component {
         <div className="troca--container">
           
           <Banner />
+
+          <h1 className="troca__title">
+            Troca de celular: passo a passo
+          </h1>
         
           <Menu step={ this.state.step } />
 
@@ -162,7 +176,7 @@ class App extends Component {
             STEP 1
           **/}
 
-          { this.state.step >= 1 &&
+          { (this.state.step >= 1 && this.state.aceite === '') &&
             <section className="troca-step">
               <h2 className="troca__title">
                 Conte para a gente:
@@ -199,7 +213,7 @@ class App extends Component {
             STEP 2
           **/}
 
-          { this.state.step >= 2 &&
+          { (this.state.step >= 2 && this.state.aceite === '') &&
             <section className="troca-step">
               <h2 className="troca__title">
                 Faça agora a avaliação do seu smartphone usado <span>e veja quanto você vai ganhar de desconto na compra de um novo:</span>
@@ -276,7 +290,7 @@ class App extends Component {
             STEP 2
           **/}
 
-          { this.state.step >= 3 &&
+          { (this.state.step >= 3 && this.state.aceite === '') &&
             <section className="troca-step">
 
               <h2 className="troca__title">
@@ -319,37 +333,72 @@ class App extends Component {
                 </p>
               </div>
 
-              <h2 className="troca__title">
-            *Conheça as lojas<br />Faz + Fácil participantes para<br />levar o seu celular usado
-          </h2>
-
-          <select
-            id="cmpLoja" name="cmpLoja"
-            onChange={this.handleLoja.bind(this)}
-            value={ this.state.lojaSelect }>
-            <option value="">Selecione a loja:</option>
-
-            {
-              lojas.map(loja => <option value={ loja.id } key={loja.id}>{ loja.loja }</option>)
-            }
-
-          </select>
-
-          {
-            this.state.loja && <p className="troca__loja">
-            <strong>{ this.state.loja.loja }</strong><br />
-            { this.state.loja.logradouro }, { this.state.loja.numero }{ this.state.loja.complemento ? ` - ${this.state.loja.complemento}` : '' }<br />
-            { this.state.loja.bairro }, { this.state.loja.cidade } - { this.state.loja.uf }
-          </p>
-          }
-
             </section>
           }
 
         </div>
 
+
         { this.state.aceite === true &&
+
           <div>
+          <div id="lojas" className="troca-step">
+
+            <h2 className="troca__title">
+              *Conheça as lojas<br />Faz + Fácil participantes para<br />levar o seu celular usado
+            </h2>
+
+            <select
+                id="cmpLoja" name="cmpLoja"
+                onChange={this.handleLoja.bind(this)}
+                value={ this.state.lojaSelect }>
+                <option value="">Selecione a loja:</option>
+
+                {
+                  lojas.map(loja => <option value={ loja.id } key={loja.id}>{ loja.loja }</option>)
+                }
+
+            </select>
+
+            {
+              this.state.loja && <p className="troca__loja">
+              <strong>{ this.state.loja.loja }</strong><br />
+              { this.state.loja.logradouro }, { this.state.loja.numero }{ this.state.loja.complemento ? ` - ${this.state.loja.complemento}` : '' }<br />
+              { this.state.loja.bairro }, { this.state.loja.cidade } - { this.state.loja.uf }
+            </p>
+            }
+
+            </div>
+
+            <article id="cupom">
+            
+              <header>
+                Copie seu cupom
+              </header>
+            
+              <div className="troca-modal-input-field">
+                <input type="text" id="cmpCupom" value={this.state.cupom} readOnly></input>
+                <button title="Copiar cupom" onClick={ this.copyText }>
+                  <img src={copy} alt="Copiar" />
+                </button>
+              </div>
+
+              <p className="troca-modal-input-text">
+                <strong>
+                  Guarde este cupom e use-o durante a compra. Imprima o laudo gerado abaixo e leve-o junto com o seu aparelho usado na Loja Faz + Fácil de sua escolha.
+                </strong>
+              </p>
+
+              <button className="troca-modal-cta" onClick={ () => {
+                     window.open(`https://www.carrefour.com.br/p/${ this.state.modeloCompra }?crfint=subhome|troca-agora|termo-sim|26062019|1`);
+                  } }>
+                Comprar
+              </button>
+
+            </article>
+
+            {/* LAUDO */}
+
             <article id="laudo">
 
               <header>
